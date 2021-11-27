@@ -7,8 +7,8 @@ import java.util.Scanner;
 public class Game {
     private Player _player;
     private Carpet _carpet;
-    private GenericCalculator<Integer> _intCal;
-    private GenericCalculator<String> _strCal;
+    private GenericCalculator _intCal;
+    private GenericCalculator _strCal;
     private int _maxLevel;
     private int _chances;
 
@@ -16,8 +16,8 @@ public class Game {
         this._maxLevel = 20;
         this._chances = 5;
         this._player = new Player(this._chances, this._maxLevel);
-        this._intCal = new GenericCalculator<Integer>();
-        this._strCal = new GenericCalculator<String>();
+        this._intCal = new IntegerCalculator();
+        this._strCal = new StringCalculator();
         this._carpet = new Carpet();
         this.set_carpet();
     }
@@ -97,7 +97,7 @@ public class Game {
                         String result  = sc.nextLine();
                         try{
                             int res = 0;
-                            int ans = this._intCal.operate_integer(op1, op2);
+                            int ans = (Integer) this._intCal.operate(op1, op2);
                             try{
                                 res = Integer.parseInt(result);
                             }
@@ -138,7 +138,7 @@ public class Game {
                         String op2 = get_rd_string(4);
                         System.out.println("Calculate the concatenation of strings "+op1+" and "+op2);
                         String result = sc.nextLine();
-                        String ans = this._strCal.operate_string(op1, op2);
+                        String ans = (String)this._strCal.operate(op1, op2);
                         if(result.equals(ans)){
                             System.out.println("Correct answer");
                             Toy wonToy = this._carpet.clone_toy(tileNum-1);
