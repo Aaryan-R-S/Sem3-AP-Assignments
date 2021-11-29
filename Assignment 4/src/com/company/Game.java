@@ -79,9 +79,21 @@ public class Game {
             }
             else if(tileNum%2==0){
                 System.out.println("You landed on tile "+tileNum);
-                Toy wonToy = this._carpet.clone_toy(tileNum-1);
-                this._player.add_toy(wonToy);
-                System.out.println("You won a "+wonToy.get_name()+" soft toy");
+                Toy wonToy = null;
+                while(true) {
+                    try {
+                        wonToy = this._carpet.clone_toy(tileNum - 1);
+                        this._player.add_toy(wonToy);
+                        System.out.println("You won a " + wonToy.get_name() + " soft toy");
+                        break;
+                    }
+                    catch (NullPointerException e){
+                        System.out.println("Encountered some error! Trying again...");
+                    }
+                    finally {
+                        wonToy = null;
+                    }
+                }
             }
             else{
                 System.out.println("You landed on tile "+tileNum);
@@ -108,9 +120,21 @@ public class Game {
                             }
                             if(res==ans){
                                 System.out.println("Correct answer");
-                                Toy wonToy = this._carpet.clone_toy(tileNum-1);
-                                this._player.add_toy(wonToy);
-                                System.out.println("You won a "+wonToy.get_name()+" soft toy");
+                                Toy wonToy = null;
+                                while(true) {
+                                    try {
+                                        wonToy = this._carpet.clone_toy(tileNum - 1);
+                                        this._player.add_toy(wonToy);
+                                        System.out.println("You won a " + wonToy.get_name() + " soft toy");
+                                        break;
+                                    }
+                                    catch (NullPointerException e){
+                                        System.out.println("Encountered some error! Trying again...");
+                                    }
+                                    finally {
+                                        wonToy = null;
+                                    }
+                                }
                             }
                             else{
                                 System.out.println("Incorrect answer");
@@ -120,9 +144,21 @@ public class Game {
                         catch (ArithmeticException e){
                             if(result.equals("nd")){
                                 System.out.println("Correct answer");
-                                Toy wonToy = this._carpet.clone_toy(tileNum-1);
-                                this._player.add_toy(wonToy);
-                                System.out.println("You won a "+wonToy.get_name()+" soft toy");
+                                Toy wonToy = null;
+                                while(true) {
+                                    try {
+                                        wonToy = this._carpet.clone_toy(tileNum - 1);
+                                        this._player.add_toy(wonToy);
+                                        System.out.println("You won a " + wonToy.get_name() + " soft toy");
+                                        break;
+                                    }
+                                    catch (NullPointerException ee){
+                                        System.out.println("Encountered some error! Trying again...");
+                                    }
+                                    finally {
+                                        wonToy = null;
+                                    }
+                                }
                             }
                             else {
                                 System.out.println("Incorrect answer");
@@ -141,9 +177,21 @@ public class Game {
                         String ans = (String)this._strCal.operate(op1, op2);
                         if(result.equals(ans)){
                             System.out.println("Correct answer");
-                            Toy wonToy = this._carpet.clone_toy(tileNum-1);
-                            this._player.add_toy(wonToy);
-                            System.out.println("You won a "+wonToy.get_name());
+                            Toy wonToy = null;
+                            while(true) {
+                                try {
+                                    wonToy = this._carpet.clone_toy(tileNum - 1);
+                                    this._player.add_toy(wonToy);
+                                    System.out.println("You won a " + wonToy.get_name() + " soft toy");
+                                    break;
+                                }
+                                catch (NullPointerException e){
+                                    System.out.println("Encountered some error! Trying again...");
+                                }
+                                finally {
+                                    wonToy = null;
+                                }
+                            }
                         }
                         else{
                             System.out.println("Incorrect answer");
@@ -157,7 +205,6 @@ public class Game {
                     }
                 }
             }
-
             chances++;
         }
 

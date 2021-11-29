@@ -1,6 +1,6 @@
 package com.company;
 
-public class IntegerCalculator implements GenericCalculator<Integer>{
+public final class IntegerCalculator implements GenericCalculator<Integer>{
     @Override
     public Integer operate(Integer op1, Integer op2){
         try{

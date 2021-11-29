@@ -17,11 +17,16 @@ public class Bucket {
         return this._toys;
     }
 
-    public String toString(){
+    public String printBucket() throws NoToyException{
         String myStr = new String();
         for (Toy t:this._toys) {
             myStr += t.get_name()+", ";
         }
-        return myStr.substring(0, myStr.length()-2);
+        try {
+            return myStr.substring(0, myStr.length() - 2);
+        }
+        catch (Exception e){
+            throw new NoToyException("You didn't win any soft toy in the game!");
+        }
     }
 }

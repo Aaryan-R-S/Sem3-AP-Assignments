@@ -18,7 +18,12 @@ public class Player {
     }
 
     public void printBucket(){
-        System.out.println(this._bucket);
+        try {
+            System.out.println(this._bucket.printBucket());
+        }
+        catch (NoToyException e){
+            System.out.println(e.getMessage());
+        }
     }
 
     public int get_chances(){

@@ -1,5 +1,5 @@
 package com.company;
 
-public interface GenericCalculator <T>{
+public sealed interface GenericCalculator <T> permits IntegerCalculator, StringCalculator{
     public T operate(T op1, T op2);
 }

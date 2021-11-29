@@ -18,7 +18,6 @@ public class Toy implements Cloneable{
                 return copyToy;
             } catch (CloneNotSupportedException e) {
                 System.out.println("Encountered some error! Trying again...");
-                return null;
             }
         }
     }
